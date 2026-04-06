@@ -1,16 +1,5 @@
 const API_BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:3000'
 
-const OFFICIAL_MODEL_URLS = {
-  codex: 'https://openai.com/codex/',
-  claude: 'https://claude.ai/',
-  'claude-ai': 'https://claude.ai/',
-  blackbox: 'https://www.blackbox.ai/',
-  'blackbox-ai': 'https://www.blackbox.ai/',
-  blackboxai: 'https://www.blackbox.ai/',
-  chatgpt: 'https://chatgpt.com/',
-  gemini: 'https://gemini.google.com/',
-}
-
 async function request(path, options = {}) {
   const response = await fetch(`${API_BASE_URL}${path}`, {
     headers: {
