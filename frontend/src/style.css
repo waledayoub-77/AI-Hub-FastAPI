@@ -1,0 +1,236 @@
+:root {
+  --bg-1: #060912;
+  --bg-2: #0d1424;
+  --panel: rgba(14, 20, 37, 0.8);
+  --panel-strong: rgba(20, 30, 53, 0.95);
+  --text: #e7edf9;
+  --text-muted: #9fb1d8;
+  --line: rgba(146, 172, 224, 0.24);
+  --accent: #3ddc97;
+  --accent-2: #00a8cc;
+  --danger: #ff7c7c;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background:
+    radial-gradient(circle at 10% 10%, rgba(61, 220, 151, 0.18), transparent 28%),
+    radial-gradient(circle at 90% 0%, rgba(0, 168, 204, 0.2), transparent 34%),
+    linear-gradient(140deg, var(--bg-1), var(--bg-2));
+  color: var(--text);
+  font-family: 'Space Grotesk', 'Segoe UI', sans-serif;
+}
+
+#app {
+  min-height: 100vh;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.app-shell {
+  width: min(1100px, 100% - 2rem);
+  margin: 0 auto;
+  padding: 1.5rem 0 2rem;
+}
+
+.topbar {
+  padding: 1.4rem;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  background: rgba(10, 16, 30, 0.82);
+  backdrop-filter: blur(8px);
+  animation: fade-up 550ms ease;
+}
+
+.brand {
+  display: inline-block;
+  font-size: clamp(1.2rem, 2.8vw, 2rem);
+  font-weight: 700;
+  letter-spacing: 0.04em;
+}
+
+.subtitle {
+  margin: 0.5rem 0 0;
+  color: var(--text-muted);
+}
+
+.content {
+  margin-top: 1rem;
+  padding: 1.5rem;
+  border-radius: 16px;
+  background: var(--panel);
+  border: 1px solid var(--line);
+  animation: fade-up 700ms ease;
+}
+
+h1 {
+  margin: 0;
+  font-size: clamp(1.4rem, 3.2vw, 2.1rem);
+}
+
+h2 {
+  margin: 0;
+  font-size: 1.1rem;
+}
+
+.page-intro {
+  margin-top: 0.6rem;
+  color: var(--text-muted);
+}
+
+.grid {
+  margin-top: 1.1rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 0.9rem;
+}
+
+.card {
+  border: 1px solid var(--line);
+  background: var(--panel-strong);
+  padding: 1rem;
+  border-radius: 14px;
+  transition: transform 180ms ease, border-color 180ms ease;
+}
+
+.card:hover {
+  transform: translateY(-3px);
+  border-color: rgba(61, 220, 151, 0.6);
+}
+
+.card-disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.card-disabled:hover {
+  transform: none;
+  border-color: var(--line);
+}
+
+.card p {
+  margin: 0.6rem 0 0;
+  color: var(--text-muted);
+}
+
+.chip {
+  display: inline-block;
+  margin-top: 0.8rem;
+  font-size: 0.8rem;
+  background: rgba(61, 220, 151, 0.16);
+  border: 1px solid rgba(61, 220, 151, 0.4);
+  padding: 0.25rem 0.5rem;
+  border-radius: 999px;
+}
+
+.panel {
+  border: 1px solid var(--line);
+  background: var(--panel-strong);
+  border-radius: 14px;
+  padding: 1rem;
+}
+
+.back-link {
+  display: inline-block;
+  margin-bottom: 0.8rem;
+  color: var(--text-muted);
+}
+
+.back-link:hover {
+  color: var(--accent);
+}
+
+.label {
+  display: block;
+  margin: 1rem 0 0.5rem;
+  color: var(--text-muted);
+}
+
+textarea {
+  width: 100%;
+  border-radius: 12px;
+  border: 1px solid var(--line);
+  background: rgba(6, 10, 19, 0.85);
+  color: var(--text);
+  padding: 0.8rem;
+  resize: vertical;
+}
+
+textarea:focus {
+  outline: 2px solid rgba(61, 220, 151, 0.45);
+  border-color: transparent;
+}
+
+.action {
+  margin-top: 0.9rem;
+  background: linear-gradient(90deg, var(--accent), var(--accent-2));
+  color: #032019;
+  border: none;
+  font-weight: 700;
+  border-radius: 10px;
+  padding: 0.7rem 1rem;
+  cursor: pointer;
+}
+
+.action:disabled {
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+.result {
+  margin-top: 1rem;
+  border-top: 1px solid var(--line);
+  padding-top: 0.9rem;
+}
+
+.generated-image {
+  display: block;
+  max-width: 100%;
+  border-radius: 12px;
+  border: 1px solid var(--line);
+}
+
+.status {
+  margin-top: 1rem;
+  color: var(--text-muted);
+}
+
+.error {
+  color: var(--danger);
+}
+
+.meta {
+  color: var(--text-muted);
+  margin: 0.7rem 0;
+}
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 720px) {
+  .app-shell {
+    width: calc(100% - 1rem);
+    padding-top: 0.6rem;
+  }
+
+  .topbar,
+  .content {
+    padding: 1rem;
+  }
+}
